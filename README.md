@@ -11,3 +11,5 @@ Has some exception handling
 And you can view the list even after closing the software, as it creates a .txt file to save
 
 ![Captura de tela de 2022-09-03 18-40-04](https://user-images.githubusercontent.com/62065621/188288509-e6b94a72-0634-4719-8db2-6df53334f2cf.png)
+
+course based: https://www.youtube.com/watch?v=nIHq1MtJaKs&list=PLHz_AreHm4dm6wYOIW20Nyg12TAjmMGT-

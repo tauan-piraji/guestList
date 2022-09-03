@@ -8,7 +8,7 @@ if not existsFile(file):
     createFile(file)
 
 while True:
-    R = menu(['Guest List', 'New Guest', 'Logout'])
+    R = menu(['Guest List', 'New Guest', 'Remove Guest', 'Logout'])
     if R == 1:
         headPrint('GUEST LIST')
         readFile(file)
@@ -19,5 +19,10 @@ while True:
         age = readInt('Age: ')
         register(file, name, age)
     elif R == 3:
+        line()
+        numberGuest = int(input('Guest number: '))
+        line()
+        removeGuest(file, numberGuest)
+    elif R == 4:
         headPrint('Leaving the system... see you later!')
         break

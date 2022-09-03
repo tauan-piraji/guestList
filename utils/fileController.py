@@ -40,10 +40,43 @@ def register(fileName, name = 'unknown', age = '0'):
         print(f'\n\033[31mERROR: {e.__cause__}\033[m')
     else:
         try:
-            FILE.write(f'{name};{age}\n')
+            N = open(fileName, 'rt')
+            FILE.write(f'{len(N.readlines()) + 1}-{name};{age}\n')
         except Exception as e:
             print(f'\n\033[31mERROR: {e.__cause__}\033[m')
         else:
             print('New guest added')
+    finally:
+        FILE.close()
+
+def removeGuest(fileName, guest):
+    try:
+        FILE = open(fileName, 'r')
+    except Exception as e:
+        print(f'\n\033[31mERROR: {e.__cause__}\033[m')
+    else:
+        try:
+                lines = FILE.readlines()
+
+                # pointer for position
+                ptr = 1
+                count = 1
+                # opening in writing mode
+                with open(fileName, 'w') as fw:
+                    for line in lines:
+                        # we want to remove 5th line
+                        if ptr != guest:
+                            line = line.replace(str(line.split('-')[0]), str(count))
+                            count += 1
+                            fw.write(line)
+                        if ptr == guest:
+                            x = line.split('-')[1]
+                            name = x.split(';')[0]
+                        ptr += 1
+
+        except Exception as e:
+            print(f'\n\033[31mERROR: {e.__cause__}\033[m')
+        else:
+            print(f'\033[31m{name} removed\033[m')
     finally:
         FILE.close()
